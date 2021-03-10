@@ -12,6 +12,9 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +32,23 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+        });
+
+        //Button Prime Numbers
+        Button BtnprimeNumbers = findViewById(R. id. BtnPrimeNumbers);
+        BtnprimeNumbers.setOnClickListener(v -> {
+            EditText InputText = findViewById(R.id.Input);
+            TextView PrimeNumbersAnswers = findViewById(R.id.AntwortPrimeNumbers);
+
+            // Get the Input from the EditText and change it to String
+            String matrikelnummer = InputText.getText().toString();
+
+            //Calculating the prime numbers in the Matrikelnummer
+            String primeNumbersString = PrimeNumbers.matPrimeNumbers(matrikelnummer);
+
+            //Display the Prime numbers in the textView
+            PrimeNumbersAnswers.setText("PRIME NUMBERS: " + primeNumbersString);
+
         });
     }
 
