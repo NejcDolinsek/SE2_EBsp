@@ -14,4 +14,5 @@
     <string name="abschiken">abschiken</string>
     <string name="antwort_vom_server">Antwort vom Server</string>
     <string name="primzahlen_in_deiner_matrikelnummer">Primzahlen in deiner Matrikelnummer</string>
+    <string name="primzahlen">Primzahlen</string>
 </resources>
