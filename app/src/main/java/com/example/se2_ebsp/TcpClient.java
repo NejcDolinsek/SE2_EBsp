@@ -11,28 +11,26 @@ import java.net.Socket;
 
 public  class TcpClient {
 
-    long minPrime;
     String ServerAnswer;
     String matrikelnummer;
 
-    public TcpClient(long minPrime, String serverAnswer, String matrikelnummer) {
-        this.minPrime = minPrime;
+    public TcpClient( String serverAnswer, String matrikelnummer) {
         ServerAnswer = serverAnswer;
         this.matrikelnummer = matrikelnummer;
     }
 
-    public String run(InputStream matrikelnummer) {
+    public String run() {
         try {
 
-            String sentence;
-            BufferedReader inFormUser = new BufferedReader(new InputStreamReader(matrikelnummer));
             Socket clientSocked = new Socket("se2-isys.aau.at", 53212);
             DataOutputStream outToServer = new DataOutputStream(clientSocked.getOutputStream());
             BufferedReader inFormServer = new BufferedReader(new InputStreamReader(clientSocked.getInputStream()));
-            sentence = inFormUser.readLine();
-            outToServer.writeBytes(sentence + "\n");
 
-            return inFormServer.readLine();
+            outToServer.writeBytes(matrikelnummer +"\n");
+
+            ServerAnswer = inFormServer.readLine();
+
+            return ServerAnswer;
 
         } catch (IOException e) {
             e.printStackTrace();
