@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
             TextView ServerAnswer = findViewById(R.id.AntwortServer);
 
             String matrikelnummer = InputText.getText().toString();
+
+            Flowable.fromCallable(()->SendToServer(matrikelnummer))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(Schedulers.single())
+                    .subscribe(Answer -> runOnUiThread(()->ServerAnswer.setText(Answer)));
 
         });
 
