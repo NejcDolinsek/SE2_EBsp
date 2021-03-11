@@ -12,6 +12,7 @@ import java.net.Socket;
 public  class TcpClient {
 
     long minPrime;
+    String ServerAnswer;
 
     public TcpClient(long minPrime) {
         this.minPrime = minPrime;
@@ -19,16 +20,6 @@ public  class TcpClient {
 
     public String run(InputStream matrikelnummer) {
         try {
-            /* String sentence;
-            String modifiedSentence;
-            BufferedReader inFormUser = new BufferedReader(new InputStreamReader(matrikelnummer));
-            Socket clientSocked = new Socket("se2-isys.aau.at", 53212);
-            DataOutputStream outToServer = new DataOutputStream(clientSocked.getOutputStream());
-            BufferedReader inFormServer = new BufferedReader(new InputStreamReader(clientSocked.getInputStream()));
-            sentence = inFormUser.readLine();
-            outToServer.writeBytes(sentence + "\n");
-            modifiedSentence = inFormServer.readLine();
-            clientSocked.close();*/
 
             String sentence;
             BufferedReader inFormUser = new BufferedReader(new InputStreamReader(matrikelnummer));
@@ -44,6 +35,10 @@ public  class TcpClient {
             e.printStackTrace();
             return "FAIL";
         }
+    }
+
+    public String getServerAnswer(){
+        return ServerAnswer;
     }
 
 }
