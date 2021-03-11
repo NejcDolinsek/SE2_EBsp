@@ -13,9 +13,12 @@ public  class TcpClient {
 
     long minPrime;
     String ServerAnswer;
+    String matrikelnummer;
 
-    public TcpClient(long minPrime) {
+    public TcpClient(long minPrime, String serverAnswer, String matrikelnummer) {
         this.minPrime = minPrime;
+        ServerAnswer = serverAnswer;
+        this.matrikelnummer = matrikelnummer;
     }
 
     public String run(InputStream matrikelnummer) {
