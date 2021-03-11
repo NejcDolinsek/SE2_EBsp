@@ -1,5 +1,6 @@
 package com.example.se2_ebsp;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,6 +16,14 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.Socket;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +42,27 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        //Button TCP client
+        Button BtnServer = findViewById(R. id. BtnServer);
+        BtnServer.setOnClickListener(v -> {
+            EditText InputText = findViewById(R.id.Input);
+            TextView ServerAnswer = findViewById(R.id.AntwortServer);
+
+
+            String initialString = "11704726";
+            InputStream matrikelnummer = new ByteArrayInputStream(initialString.getBytes());
+
+            TcpClient p = new TcpClient(143);
+            String answer = p.run(matrikelnummer);
+
+            ServerAnswer.setText(answer);
+            
+        });
+
+
+
+
 
         //Button Prime Numbers
         Button BtnprimeNumbers = findViewById(R. id. BtnPrimeNumbers);
