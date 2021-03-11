@@ -14,8 +14,7 @@ public  class TcpClient {
     String ServerAnswer;
     String matrikelnummer;
 
-    public TcpClient( String serverAnswer, String matrikelnummer) {
-        ServerAnswer = serverAnswer;
+    public TcpClient( String matrikelnummer) {
         this.matrikelnummer = matrikelnummer;
     }
 
