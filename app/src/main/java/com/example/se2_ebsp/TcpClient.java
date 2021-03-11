@@ -20,7 +20,6 @@ public  class TcpClient {
 
     public String run() {
         try {
-
             Socket clientSocked = new Socket("se2-isys.aau.at", 53212);
             DataOutputStream outToServer = new DataOutputStream(clientSocked.getOutputStream());
             BufferedReader inFormServer = new BufferedReader(new InputStreamReader(clientSocked.getInputStream()));

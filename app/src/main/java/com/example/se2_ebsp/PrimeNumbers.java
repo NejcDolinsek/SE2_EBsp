@@ -1,9 +1,16 @@
 package com.example.se2_ebsp;
 
-public class PrimeNumbers extends MainActivity {
-    public static String matPrimeNumbers(String matrikelnummer ){
+import android.widget.EditText;
 
-        int [] matrikelnummerArray = StringToArray(matrikelnummer);
+public class PrimeNumbers extends MainActivity {
+    public static String matPrimeNumbers(EditText Matrikelnummer ){
+
+        //Converts the Edit text to String
+        String matrikelnummerString = Matrikelnummer.getText().toString();
+
+        //Converts the String to Array
+        int [] matrikelnummerArray = StringToArray(matrikelnummerString);
+
         StringBuilder a = new StringBuilder();
 
         for (int j : matrikelnummerArray) {
@@ -14,7 +21,7 @@ public class PrimeNumbers extends MainActivity {
         return a.toString();
     }
 
-    private static boolean isPrime(Integer integer) {
+    public static boolean isPrime(Integer integer) {
         boolean isPrime = false;
         int i = (int) Math.ceil(Math.sqrt(integer));
         if (i > 1) {
@@ -30,7 +37,7 @@ public class PrimeNumbers extends MainActivity {
         return isPrime;
     }
 
-    private static int[] StringToArray(String x){
+    public static int[] StringToArray(String x){
         String[] arr = x.split("");
 
         int [] arrayint = new int[arr.length];

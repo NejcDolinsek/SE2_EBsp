@@ -55,21 +55,14 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-
-
-
-
         //Button Prime Numbers
         Button BtnprimeNumbers = findViewById(R. id. BtnPrimeNumbers);
         BtnprimeNumbers.setOnClickListener(v -> {
             EditText InputText = findViewById(R.id.Input);
             TextView PrimeNumbersAnswers = findViewById(R.id.AntwortPrimeNumbers);
 
-            // Get the Input from the EditText and change it to String
-            String matrikelnummer = InputText.getText().toString();
-
             //Calculating the prime numbers in the Matrikelnummer
-            String primeNumbersString = PrimeNumbers.matPrimeNumbers(matrikelnummer);
+            String primeNumbersString = PrimeNumbers.matPrimeNumbers(InputText);
 
             //Display the Prime numbers in the textView
             PrimeNumbersAnswers.setText("PRIME NUMBERS: " + primeNumbersString);
