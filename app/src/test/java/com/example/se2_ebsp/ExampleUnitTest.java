@@ -21,8 +21,13 @@ public class ExampleUnitTest {
         Matrikelnummer ="11704726";
     }
 
+    @After
+    public void clear(){
+        Matrikelnummer = null;
+    }
+
     @Test
     public void TestIsPrime (){
-        assertEquals(true,PrimeNumbers.isPrime(7));
+        assertTrue(PrimeNumbers.isPrime(7));
     }
 }
